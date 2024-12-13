@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 import { Place } from '../..';
-import Card from '../../components/Cards/Card';
+import PlaceCard from '../../components/PlaceCard/PlaceCard';
 
 
 interface MainPageProps {
@@ -118,7 +118,7 @@ function MainPage({ places }: MainPageProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {places.map((place) => <Card key={place.id} place={place} />)}
+                {places.map((place) => <PlaceCard key={place.id} place={place} />)}
               </div>
             </section>
             <div className="cities__right-section">

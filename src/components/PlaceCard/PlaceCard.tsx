@@ -6,7 +6,7 @@ export interface PlaceCardProps {
   place: Place;
 }
 
-function Card({ place }: PlaceCardProps): JSX.Element {
+function PlaceCard({ place }: PlaceCardProps): JSX.Element {
 
   const { premium, img, activeBookmark, name, type, price, rate, } = place;
   return (
@@ -65,4 +65,4 @@ function Card({ place }: PlaceCardProps): JSX.Element {
   );
 }
 
-export default Card;
+export default PlaceCard;
