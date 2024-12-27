@@ -1,15 +1,16 @@
 import { Navigate } from 'react-router-dom'
-import { AppRoute, AuthorizationStatus } from '../../constants/constants'
+import { AuthorizationStatus } from '../../constants/constants'
 
 type PrivateRoutesProps = {
   children: any,
-  authorizationStatus: AuthorizationStatus
+  authorizationStatus: AuthorizationStatus,
+  redirectTo: string
 }
-function PrivateRoutes({ children, authorizationStatus }: PrivateRoutesProps) {
+function PrivateRoutes({ children, authorizationStatus, redirectTo }: PrivateRoutesProps) {
 
   return (
     <div>
-      {authorizationStatus === AuthorizationStatus.Auth ? children : <Navigate to={AppRoute.Login} />}
+      {authorizationStatus === AuthorizationStatus.Auth ? children : <Navigate to={redirectTo} />}
     </div>
   )
 }
