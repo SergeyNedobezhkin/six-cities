@@ -1,18 +1,19 @@
 import { JSX } from 'react';
-import { Place } from '../..';
+import { OffersCard } from '../../mocks';
 
 
 export interface PlaceCardProps {
-  place: Place;
+  offersCard: OffersCard;
+
 }
 
-function PlaceCard({ place }: PlaceCardProps): JSX.Element {
+function PlaceCard({ offersCard }: PlaceCardProps): JSX.Element {
 
-  const { premium, img, activeBookmark, name, type, price, rate, } = place;
+  // const { premium, img, active_bookmark, name, type, price, rate, } = place;
   return (
     <article className="cities__card place-card">
       {
-        premium &&
+        offersCard.premium &&
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
@@ -21,7 +22,7 @@ function PlaceCard({ place }: PlaceCardProps): JSX.Element {
         <a href="#">
           <img
             className="place-card__image"
-            src={img}
+            src={offersCard.images[0].src}
             width={260}
             height={200}
             alt="Place image"
@@ -31,11 +32,11 @@ function PlaceCard({ place }: PlaceCardProps): JSX.Element {
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
-            <b className="place-card__price-value">€{price}</b>
+            <b className="place-card__price-value">€{offersCard.price}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
           <button
-            className={`place-card__bookmark-button ${activeBookmark && 'place-card__bookmark-button--active'} button`}
+            className={`place-card__bookmark-button ${offersCard.active_bookmark && 'place-card__bookmark-button--active'} button`}
             type="button"
           >
             <svg
@@ -50,16 +51,16 @@ function PlaceCard({ place }: PlaceCardProps): JSX.Element {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{ width: `${rate}%` }} />
+            <span style={{ width: `${offersCard.rate}%` }} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
         <h2 className="place-card__name">
           <a href="#">
-            {name}
+            {offersCard.host_name}
           </a>
         </h2>
-        <p className="place-card__type">{type}</p>
+        <p className="place-card__type">{offersCard.type}</p>
       </div>
     </article>
   );

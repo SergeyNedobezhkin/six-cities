@@ -4,29 +4,31 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { Place } from '../..';
 import MainPage from '../../pages/MainPage/MainPage';
 import NotFound from '../../pages/NotFound/NotFound';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
-import OfferPage from '../../pages/OfferPage/OfferPage';
 import { AppRoute, AuthorizationStatus } from '../../constants/constants';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 import { HelmetProvider } from 'react-helmet-async';
+import { OffersCard, ReviewsSection, } from '../../mocks';
+import OfferPage from '../../pages/OfferPage/OfferPage';
 
 
 interface AppProps {
-  places: Place[];
+  reviewsSection: ReviewsSection;
+  offersCards: OffersCard[];
 }
 
-function App({ places }: AppProps): JSX.Element {
+function App({ reviewsSection, offersCards, }: AppProps): JSX.Element {
+
   return (
     <HelmetProvider>
       <BrowserRouter >
         <Routes>
           <Route
             path={AppRoute.Root}
-            element={<MainPage places={places} />}
+            element={<MainPage offersCards={offersCards} />}
           />
           <Route
             path={AppRoute.Login}
@@ -43,7 +45,8 @@ function App({ places }: AppProps): JSX.Element {
                 <FavoritesPage />
               </PrivateRoutes>
             } />
-          <Route path={`${AppRoute.Offer}/:offerId`} element={<OfferPage />} />
+          <Route path={`${AppRoute.Offer}/:id`} element={
+            <OfferPage reviewsSection={reviewsSection} offersCard={offersCards[1]} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

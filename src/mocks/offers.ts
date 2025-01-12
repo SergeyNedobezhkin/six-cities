@@ -1,0 +1,156 @@
+export type OffersCard = {
+  id: number;
+  price: number;
+  type: string;
+  images: { src: string; alt: string }[];
+  active_bookmark: boolean;
+  premium: boolean;
+  rate: number | null;
+  bedrooms: number;
+  maxPeople: number;
+  title: string;
+  host_name: string,
+  host_information: string;
+  detailed_description: string[],
+  host_avatar: string | null;
+  host_isPro: boolean;
+};
+
+export const OffersCards: OffersCard[] = [
+  {
+    id: 1,
+    price: 110,
+    host_avatar: 'img/avatar-angelina.jpg',
+    type: 'Apartment',
+    images: [
+      { src: 'img/room.jpg', alt: 'room' },
+      { src: 'img/apartment-01.jpg', alt: 'apartment' },
+      { src: 'img/apartment-02.jpg', alt: 'apartment' },
+      { src: 'img/apartment-03.jpg', alt: 'apartment' },
+      { src: 'img/studio-01.jpg', alt: 'studio' },
+      { src: 'img/apartment-01.jpg', alt: 'apartment' },
+    ],
+    active_bookmark: false,
+    premium: true,
+    rate: 90,
+    bedrooms: 3,
+    maxPeople: 4,
+    title: 'Beautiful & luxurious apartment at great location',
+    host_name: 'Angelina',
+    host_isPro: true,
+    host_information: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
+    detailed_description: [
+      'Wi-Fi',
+      'Washing machine',
+      'Towels',
+      'Heating',
+      'Coffee machine',
+      'Baby seat',
+      'Kitchen',
+      'Dishwasher',
+      'Cabel TV',
+      'Fridge',],
+  },
+  {
+    id: 2,
+    price: 120,
+    type: 'Apartment',
+    images: [
+      { src: 'img/room.jpg', alt: 'room' },
+      { src: 'img/apartment-01.jpg', alt: 'apartment' },
+      { src: 'img/apartment-02.jpg', alt: 'apartment' },
+      { src: 'img/apartment-03.jpg', alt: 'apartment' },
+      { src: 'img/studio-01.jpg', alt: 'studio' },
+      { src: 'img/apartment-01.jpg', alt: 'apartment' },
+    ],
+    active_bookmark: true,
+    host_avatar: 'img/avatar-angelina.jpg',
+    premium: true,
+    rate: 80,
+    bedrooms: 3,
+    maxPeople: 4,
+    title: 'Beautiful & luxurious apartment at great location',
+    host_name: 'Karina',
+    host_isPro: false,
+    host_information: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
+    detailed_description: [
+      'Wi-Fi',
+      'Washing machine',
+      'Towels',
+      'Heating',
+      'Coffee machine',
+      'Baby seat',
+      'Kitchen',
+      'Dishwasher',
+      'Cabel TV',
+      'Fridge',],
+  },
+  {
+    id: 3,
+    price: 130,
+    type: 'Apartment',
+    host_avatar: 'img/avatar-angelina.jpg',
+    images: [
+      { src: 'img/room.jpg', alt: 'room' },
+      { src: 'img/apartment-01.jpg', alt: 'apartment' },
+      { src: 'img/apartment-02.jpg', alt: 'apartment' },
+      { src: 'img/apartment-03.jpg', alt: 'apartment' },
+      { src: 'img/studio-01.jpg', alt: 'studio' },
+      { src: 'img/apartment-01.jpg', alt: 'apartment' },
+    ],
+    active_bookmark: true,
+    premium: false,
+    rate: 80,
+    bedrooms: 3,
+    maxPeople: 4,
+    title: 'Beautiful & luxurious apartment at great location',
+    host_name: 'Maks',
+    host_isPro: true,
+    host_information: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
+    detailed_description: [
+      'Wi-Fi',
+      'Washing machine',
+      'Towels',
+      'Heating',
+      'Coffee machine',
+      'Baby seat',
+      'Kitchen',
+      'Dishwasher',
+      'Cabel TV',
+      'Fridge',],
+  },
+  {
+    id: 4,
+    price: 140,
+    type: 'Apartment',
+    host_avatar: 'img/avatar-angelina.jpg',
+    images: [
+      { src: 'img/room.jpg', alt: 'room' },
+      { src: 'img/apartment-01.jpg', alt: 'apartment' },
+      { src: 'img/apartment-02.jpg', alt: 'apartment' },
+      { src: 'img/apartment-03.jpg', alt: 'apartment' },
+      { src: 'img/studio-01.jpg', alt: 'studio' },
+      { src: 'img/apartment-01.jpg', alt: 'apartment' },
+    ],
+    active_bookmark: false,
+    premium: true,
+    rate: 80,
+    bedrooms: 3,
+    maxPeople: 4,
+    title: 'Beautiful & luxurious apartment at great location',
+    host_name: 'Tom',
+    host_isPro: true,
+    host_information: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
+    detailed_description: [
+      'Wi-Fi',
+      'Washing machine',
+      'Towels',
+      'Heating',
+      'Coffee machine',
+      'Baby seat',
+      'Kitchen',
+      'Dishwasher',
+      'Cabel TV',
+      'Fridge',],
+  },
+]

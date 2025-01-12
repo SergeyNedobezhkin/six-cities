@@ -1,15 +1,16 @@
 import { JSX } from 'react';
-import { Place } from '../..';
 import PlaceCard from '../../components/PlaceCard/PlaceCard';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/App/Header/Header';
+import { OffersCard } from '../../mocks';
 
 
 interface MainPageProps {
-  places: Place[];
+  offersCards: OffersCard[]
 }
 
-function MainPage({ places }: MainPageProps): JSX.Element {
+function MainPage({ offersCards }: MainPageProps): JSX.Element {
+
   return (
     <div className="page page--gray page--main">
       <Helmet>
@@ -58,7 +59,7 @@ function MainPage({ places }: MainPageProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{places.length} places to stay in Amsterdam</b>
+              <b className="places__found">{offersCards.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -86,7 +87,7 @@ function MainPage({ places }: MainPageProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {places.map((place) => <PlaceCard key={place.id} place={place} />)}
+                {offersCards.map((offersCard) => <PlaceCard key={offersCard.id} offersCard={offersCard} />)}
               </div>
             </section>
             <div className="cities__right-section">
