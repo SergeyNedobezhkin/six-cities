@@ -11,16 +11,16 @@ import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage';
 import { AppRoute, AuthorizationStatus } from '../../constants/constants';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 import { HelmetProvider } from 'react-helmet-async';
-import { OffersCard, ReviewsSection, } from '../../mocks';
-import OfferPage from '../../pages/OfferPage/OfferPage';
+import { OfferPage } from '../../pages/OfferPage/OfferPage';
+import { Offer, ReviewsBlock } from '../../mocks';
 
 
 interface AppProps {
-  reviewsSection: ReviewsSection;
-  offersCards: OffersCard[];
+  reviewsBlock: ReviewsBlock
+  offers: Offer[];
 }
 
-function App({ reviewsSection, offersCards, }: AppProps): JSX.Element {
+function App({ reviewsBlock, offers }: AppProps): JSX.Element {
 
   return (
     <HelmetProvider>
@@ -28,7 +28,7 @@ function App({ reviewsSection, offersCards, }: AppProps): JSX.Element {
         <Routes>
           <Route
             path={AppRoute.Root}
-            element={<MainPage offersCards={offersCards} />}
+            element={<MainPage offers={offers} />}
           />
           <Route
             path={AppRoute.Login}
@@ -45,8 +45,7 @@ function App({ reviewsSection, offersCards, }: AppProps): JSX.Element {
                 <FavoritesPage />
               </PrivateRoutes>
             } />
-          <Route path={`${AppRoute.Offer}/:id`} element={
-            <OfferPage reviewsSection={reviewsSection} offersCard={offersCards[1]} />} />
+          <Route path={`${AppRoute.Offer}/:id`} element={<OfferPage reviewsBlock={reviewsBlock} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

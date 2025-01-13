@@ -1,8 +1,8 @@
-export type OffersCard = {
+export type Offer = {
   id: number;
   price: number;
   type: string;
-  images: { src: string; alt: string }[];
+  img: string,
   active_bookmark: boolean;
   premium: boolean;
   rate: number | null;
@@ -16,20 +16,14 @@ export type OffersCard = {
   host_isPro: boolean;
 };
 
-export const OffersCards: OffersCard[] = [
+export const offers: Offer[] = [
   {
     id: 1,
     price: 110,
     host_avatar: 'img/avatar-angelina.jpg',
     type: 'Apartment',
-    images: [
-      { src: 'img/room.jpg', alt: 'room' },
-      { src: 'img/apartment-01.jpg', alt: 'apartment' },
-      { src: 'img/apartment-02.jpg', alt: 'apartment' },
-      { src: 'img/apartment-03.jpg', alt: 'apartment' },
-      { src: 'img/studio-01.jpg', alt: 'studio' },
-      { src: 'img/apartment-01.jpg', alt: 'apartment' },
-    ],
+    img: 'img/apartment-01.jpg',
+
     active_bookmark: false,
     premium: true,
     rate: 90,
@@ -55,14 +49,7 @@ export const OffersCards: OffersCard[] = [
     id: 2,
     price: 120,
     type: 'Apartment',
-    images: [
-      { src: 'img/room.jpg', alt: 'room' },
-      { src: 'img/apartment-01.jpg', alt: 'apartment' },
-      { src: 'img/apartment-02.jpg', alt: 'apartment' },
-      { src: 'img/apartment-03.jpg', alt: 'apartment' },
-      { src: 'img/studio-01.jpg', alt: 'studio' },
-      { src: 'img/apartment-01.jpg', alt: 'apartment' },
-    ],
+    img: 'img/apartment-02.jpg',
     active_bookmark: true,
     host_avatar: 'img/avatar-angelina.jpg',
     premium: true,
@@ -90,14 +77,8 @@ export const OffersCards: OffersCard[] = [
     price: 130,
     type: 'Apartment',
     host_avatar: 'img/avatar-angelina.jpg',
-    images: [
-      { src: 'img/room.jpg', alt: 'room' },
-      { src: 'img/apartment-01.jpg', alt: 'apartment' },
-      { src: 'img/apartment-02.jpg', alt: 'apartment' },
-      { src: 'img/apartment-03.jpg', alt: 'apartment' },
-      { src: 'img/studio-01.jpg', alt: 'studio' },
-      { src: 'img/apartment-01.jpg', alt: 'apartment' },
-    ],
+    img: 'img/room.jpg',
+
     active_bookmark: true,
     premium: false,
     rate: 80,
@@ -124,14 +105,7 @@ export const OffersCards: OffersCard[] = [
     price: 140,
     type: 'Apartment',
     host_avatar: 'img/avatar-angelina.jpg',
-    images: [
-      { src: 'img/room.jpg', alt: 'room' },
-      { src: 'img/apartment-01.jpg', alt: 'apartment' },
-      { src: 'img/apartment-02.jpg', alt: 'apartment' },
-      { src: 'img/apartment-03.jpg', alt: 'apartment' },
-      { src: 'img/studio-01.jpg', alt: 'studio' },
-      { src: 'img/apartment-01.jpg', alt: 'apartment' },
-    ],
+    img: 'img/apartment-03.jpg',
     active_bookmark: false,
     premium: true,
     rate: 80,

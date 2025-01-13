@@ -1,6 +1,6 @@
 
 
-export type Reviews = {
+export type Review = {
   id: number;
   name: string;
   avatar: string;
@@ -9,12 +9,12 @@ export type Reviews = {
   comment: string;
 }
 
-export type ReviewsSection = {
+export type ReviewsBlock = {
   reviewsCount: number;
-  reviews: Reviews[];
+  reviews: Review[];
 }
 
-export const reviewsSection = {
+export const reviewsBlock = {
   reviewsCount: 1,
   reviews:
     [

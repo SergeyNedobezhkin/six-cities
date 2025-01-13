@@ -1,15 +1,16 @@
 import { JSX } from 'react';
-import PlaceCard from '../../components/PlaceCard/PlaceCard';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/App/Header/Header';
-import { OffersCard } from '../../mocks';
+import { Offer,} from '../../mocks';
+import { OfferList } from '../../components/OffersList';
+
 
 
 interface MainPageProps {
-  offersCards: OffersCard[]
+  offers: Offer[],
 }
 
-function MainPage({ offersCards }: MainPageProps): JSX.Element {
+function MainPage({ offers,  }: MainPageProps): JSX.Element {
 
   return (
     <div className="page page--gray page--main">
@@ -59,7 +60,7 @@ function MainPage({ offersCards }: MainPageProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offersCards.length} places to stay in Amsterdam</b>
+              <b className="places__found">{offers.length} places to stay in Amsterdam</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -87,7 +88,8 @@ function MainPage({ offersCards }: MainPageProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {offersCards.map((offersCard) => <PlaceCard key={offersCard.id} offersCard={offersCard} />)}
+                {/* {offersCards.map((offersCard) => <PlaceCard key={offersCard.id} offersCard={offersCard} />)}*/}
+                <OfferList offers={offers} />
               </div>
             </section>
             <div className="cities__right-section">
