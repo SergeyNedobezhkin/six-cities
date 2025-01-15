@@ -1,7 +1,7 @@
 import { JSX } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/App/Header/Header';
-import { Offer,} from '../../mocks';
+import { Offer, } from '../../mocks';
 import { OfferList } from '../../components/OffersList';
 
 
@@ -10,7 +10,7 @@ interface MainPageProps {
   offers: Offer[],
 }
 
-function MainPage({ offers,  }: MainPageProps): JSX.Element {
+function MainPage({ offers }: MainPageProps): JSX.Element {
 
   return (
     <div className="page page--gray page--main">
@@ -88,7 +88,6 @@ function MainPage({ offers,  }: MainPageProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {/* {offersCards.map((offersCard) => <PlaceCard key={offersCard.id} offersCard={offersCard} />)}*/}
                 <OfferList offers={offers} />
               </div>
             </section>

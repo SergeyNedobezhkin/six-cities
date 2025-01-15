@@ -10,7 +10,7 @@ export type Review = {
 }
 
 export type ReviewsBlock = {
-  reviewsCount: number;
+  reviewsCount?: number;
   reviews: Review[];
 }
 

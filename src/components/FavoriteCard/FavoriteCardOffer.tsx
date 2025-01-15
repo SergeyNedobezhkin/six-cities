@@ -1,36 +1,33 @@
-import { JSX, } from 'react';
-import { Offer, } from '../../mocks';
 import { Link } from 'react-router-dom';
+import { Offer } from '../../mocks';
 
-
-export interface PlaceCardProps {
+type FavoriteCardOfferProps = {
   offer: Offer;
-  onMouseOver: (id: string | null) => void;
-  isFavorites?: boolean;
 }
+export const FavoriteCardOffer = ({ offer }: FavoriteCardOfferProps) => {
+  const { previewImage, price, rating, title, type, isFavorite, isPremium, id, } = offer;
+  console.log(offer);
 
-function OfferCard({ offer, onMouseOver, }: PlaceCardProps): JSX.Element {
-  const { isPremium, previewImage, price, rating, isFavorite, title, type, id } = offer;
   return (
-    <article onMouseOver={() => onMouseOver(id)} onMouseLeave={() => onMouseOver(null)} className="cities__card place-card">
+    <article className="favorites__card place-card">
       {
         isPremium &&
         <div className="place-card__mark">
-          <span>{isPremium && isPremium}</span>
+          <span>Premium</span>
         </div>
       }
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className="favorites__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img
             className="place-card__image"
             src={previewImage}
-            width={260}
-            height={200}
+            width={150}
+            height={110}
             alt="Place image"
           />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className="favorites__card-info place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">€{price}</b>
@@ -40,14 +37,10 @@ function OfferCard({ offer, onMouseOver, }: PlaceCardProps): JSX.Element {
             className={`place-card__bookmark-button ${isFavorite && 'place-card__bookmark-button--active'} button`}
             type="button"
           >
-            <svg
-              className="place-card__bookmark-icon"
-              width={18}
-              height={19}
-            >
+            <svg className="place-card__bookmark-icon" width={18} height={19}>
               <use xlinkHref="#icon-bookmark" />
             </svg>
-            <span className="visually-hidden">To bookmarks</span>
+            <span className="visually-hidden">In bookmarks</span>
           </button>
         </div>
         <div className="place-card__rating rating">
@@ -65,6 +58,4 @@ function OfferCard({ offer, onMouseOver, }: PlaceCardProps): JSX.Element {
       </div>
     </article>
   );
-}
-
-export default OfferCard;
+};
