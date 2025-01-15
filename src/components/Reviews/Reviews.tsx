@@ -9,7 +9,21 @@ function Reviews({ reviews }: ReviewsBlock) {
     rating: 0
   });
 
-  console.log(review);
+  const changeRatingValues = (e: any) => {
+    const value = e.target.value;
+    setReview({
+      ...review,
+      rating: value
+    })
+  }
+
+  const changeCommentValues = (e: any) => {
+    const comment = e.target.value;
+    setReview({
+      ...review,
+      comment: comment
+    })
+  }
 
   return (
     <form className="reviews__form form" action="#" method="post">
@@ -20,8 +34,10 @@ function Reviews({ reviews }: ReviewsBlock) {
         <input
           className="form__rating-input visually-hidden"
           name="rating"
+          value={5}
           defaultValue={5}
           id="5-stars"
+          onChange={changeRatingValues}
           type="radio"
         />
         <label
@@ -37,8 +53,10 @@ function Reviews({ reviews }: ReviewsBlock) {
           className="form__rating-input visually-hidden"
           name="rating"
           defaultValue={4}
+          onChange={changeRatingValues}
           id="4-stars"
           type="radio"
+          value={4}
         />
         <label
           htmlFor="4-stars"
@@ -53,6 +71,8 @@ function Reviews({ reviews }: ReviewsBlock) {
           className="form__rating-input visually-hidden"
           name="rating"
           defaultValue={3}
+          value={3}
+          onChange={changeRatingValues}
           id="3-stars"
           type="radio"
         />
@@ -69,6 +89,8 @@ function Reviews({ reviews }: ReviewsBlock) {
           className="form__rating-input visually-hidden"
           name="rating"
           defaultValue={2}
+          onChange={changeRatingValues}
+          value={2}
           id="2-stars"
           type="radio"
         />
@@ -85,6 +107,8 @@ function Reviews({ reviews }: ReviewsBlock) {
           className="form__rating-input visually-hidden"
           name="rating"
           defaultValue={1}
+          onChange={changeRatingValues}
+          value={1}
           id="1-star"
           type="radio"
         />
@@ -102,6 +126,8 @@ function Reviews({ reviews }: ReviewsBlock) {
         className="reviews__textarea form__textarea"
         id="review"
         name="review"
+        onChange={changeCommentValues}
+        value={review.comment}
         placeholder="Tell how was your stay, what you like and what can be improved"
         defaultValue={''}
       />
