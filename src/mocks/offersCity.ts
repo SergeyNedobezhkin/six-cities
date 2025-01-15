@@ -121,4 +121,5 @@ export const offersCity: OffersCity[] = [
   }
 ];
 
-export type OfferFavorite = OffersCity & Omit<Offer, keyof OffersCity>;
+// export type OfferFavorite = OffersCity & Omit<Offer, keyof OffersCity>;
+export type OfferFavorite = OffersCity & Partial<Omit<Offer, keyof OffersCity>>;
