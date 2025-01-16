@@ -1,14 +1,25 @@
 import { JSX } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import Header from '../../components/App/Header/Header';
 import Reviews from '../../components/Reviews/Reviews';
 import { ReviewsBlock } from '../../types/reviews.types';
+import { OfferPreview } from '../../types/offers.types';
+import { AppRoute } from '../../constants/constants';
 
 type OfferPageProps = {
   reviewsBlock: ReviewsBlock;
+  offers: OfferPreview[]
 };
 
-export function OfferPage({ reviewsBlock }: OfferPageProps): JSX.Element {
+export function OfferPage({ reviewsBlock, offers }: OfferPageProps): JSX.Element {
+  const { offerId } = useParams();
+  const offer = offers.find((offer) => offer.id === offerId);
+  console.log(offer);
+
+  if (!offer) {
+    return <Navigate to={AppRoute.NotFound} />
+  }
+
   return (
     <div className="page">
       <Header />
@@ -81,7 +92,7 @@ export function OfferPage({ reviewsBlock }: OfferPageProps): JSX.Element {
                   <span style={{ width: '80%' }} />
                   <span className="visually-hidden">Rating</span>
                 </div>
-                <span className="offer__rating-value rating__value">4.8</span>
+                <span className="offer__rating-value rating__value">{offer.rating}</span>
               </div>
               <ul className="offer__features">
                 <li className="offer__feature offer__feature--entire">Apartment</li>
@@ -313,13 +324,13 @@ export function OfferPage({ reviewsBlock }: OfferPageProps): JSX.Element {
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
                       <span style={{ width: '100%' }} />
-                      <span className="visually-hidden">Rating</span>
+                      <span className="visually-hidden">{offer.rating}</span>
                     </div>
                   </div>
                   <h2 className="place-card__name">
                     <Link to="#">Nice, cozy, warm big bed apartment</Link>
                   </h2>
-                  <p className="place-card__type">Apartment</p>
+                  <p className="place-card__type">{offer.type}</p>
                 </div>
               </article>
             </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { ReviewsBlock } from "../../types/reviews.types";
 
 
@@ -9,15 +9,15 @@ function Reviews({ reviews }: ReviewsBlock) {
     rating: 0
   });
 
-  const changeRatingValues = (e: any) => {
+  const changeRatingValues = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setReview({
       ...review,
-      rating: value
+      rating: +value
     })
   }
 
-  const changeCommentValues = (e: any) => {
+  const changeCommentValues = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const comment = e.target.value;
     setReview({
       ...review,

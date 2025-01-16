@@ -1,4 +1,4 @@
-import { OfferType } from "./offers.types";
+import { ImageSizeType, OfferType } from "./offers.types";
 import { CityTypes } from "./city.types";
 import { LocationTypes } from "./location.types";
 
@@ -8,9 +8,10 @@ export type OffersCity = {
   price: number;
   type: OfferType;
   city: CityTypes;
+  imageSize?: ImageSizeType;
   location: LocationTypes,
   isFavorite: boolean;
   isPremium: boolean;
-  rating: number | null;
+  rating: number ;
   previewImage: string;
 };

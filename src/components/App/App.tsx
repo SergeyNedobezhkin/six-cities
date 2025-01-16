@@ -32,7 +32,7 @@ function App({ reviewsBlock, offers, offersCity }: AppProps): JSX.Element {
       <BrowserRouter >
         <Routes>
           <Route
-            path={AppRoute.Root}
+            path={AppRoute.Main}
             element={<MainPage offers={offers} />}
           />
           <Route
@@ -50,7 +50,7 @@ function App({ reviewsBlock, offers, offersCity }: AppProps): JSX.Element {
                 <FavoritesPage offersCity={offersCity} />
               </PrivateRoutes>
             } />
-          <Route path={`${AppRoute.Offer}/:id`} element={<OfferPage reviewsBlock={reviewsBlock} />} />
+          <Route path={`${AppRoute.Offer}`} element={<OfferPage offers={offers} reviewsBlock={reviewsBlock} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

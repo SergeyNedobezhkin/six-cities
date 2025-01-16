@@ -7,15 +7,15 @@ type OfferListProps = {
 }
 export const OfferList = ({ offers }: OfferListProps) => {
 
-  const [activeCard, setActiveCard] = useState(false);
+  const [activeCard, setActiveCard] = useState<OfferPreview['id'] | null>(null);
 
-  const onMouseOver = (id: any) => {
-    setActiveCard(id);
-  };
+  function handleCardHover(offerId: OfferPreview['id'] | null) {
+    setActiveCard(offerId);
+  }
 
   return (
     <>
-      {offers.map((offer) => <OfferCard onMouseOver={onMouseOver} offer={offer} key={offer.id} />)}
+      {offers.map((offer) => <OfferCard block='cities' imageSizeCard="large" onCardHover={handleCardHover} offer={offer} key={offer.id} />)}
     </>
   );
 };

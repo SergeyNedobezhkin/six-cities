@@ -1,36 +1,51 @@
 import { JSX, } from 'react';
 import { Link } from 'react-router-dom';
-import { OfferPreview } from '../../types/offers.types';
+import { ImageSizeType, OfferPreview } from '../../types/offers.types';
 
 
 export interface PlaceCardProps {
   offer: OfferPreview;
-  onMouseOver: (id: string | null) => void;
+  onCardHover: (offerId: OfferPreview['id'] | null) => void;
   isFavorites?: boolean;
+  imageSizeCard?: ImageSizeType;
+  block: string
 }
 
-function OfferCard({ offer, onMouseOver, }: PlaceCardProps): JSX.Element {
+
+
+const imageSize: Record<ImageSizeType, { width: number; height: number }> = {
+  large: {
+    height: 200,
+    width: 260
+  },
+  small: {
+    width: 150,
+    height: 110
+  }
+};
+
+function OfferCard({ offer, onCardHover, imageSizeCard = 'large', block }: PlaceCardProps): JSX.Element {
   const { isPremium, previewImage, price, rating, isFavorite, title, type, id } = offer;
+
   return (
-    <article onMouseOver={() => onMouseOver(id)} onMouseLeave={() => onMouseOver(null)} className="cities__card place-card">
+    <article onMouseEnter={() => onCardHover(id)} onMouseLeave={() => onCardHover(null)} className="cities__card place-card">
       {
         isPremium &&
         <div className="place-card__mark">
           <span>{isPremium && isPremium}</span>
         </div>
       }
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      <div className={`${block}__image-wrapper place-card__image-wrapper`}>
         <Link to={`/offer/${id}`}>
           <img
             className="place-card__image"
             src={previewImage}
-            width={260}
-            height={200}
+            {...imageSize[imageSizeCard]}
             alt="Place image"
           />
         </Link>
       </div>
-      <div className="place-card__info">
+      <div className={`${block}__card-info place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">€{price}</b>

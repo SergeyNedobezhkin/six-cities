@@ -4,16 +4,19 @@ import { UserTypes } from "./user.types";
 
 export type OfferType = 'Apartment' | 'House' | 'Room';
 
+export type ImageSizeType = 'small' | 'large';
+
 export type OfferPreview = {
   id: string;
   title: string;
+  imageSize?: ImageSizeType;
   type: OfferType;
   price: number;
   city: CityTypes;
   location: LocationTypes;
   isFavorite: boolean;
   isPremium: boolean;
-  rating: number | null;
+  rating: number;
   previewImage: string;
   description: string;
 };
