@@ -1,10 +1,10 @@
 import { JSX, } from 'react';
-import { Offer, } from '../../mocks';
 import { Link } from 'react-router-dom';
+import { OfferPreview } from '../../types/offers.types';
 
 
 export interface PlaceCardProps {
-  offer: Offer;
+  offer: OfferPreview;
   onMouseOver: (id: string | null) => void;
   isFavorites?: boolean;
 }
@@ -20,7 +20,7 @@ function OfferCard({ offer, onMouseOver, }: PlaceCardProps): JSX.Element {
         </div>
       }
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={`/offer/${id}`}>
           <img
             className="place-card__image"
             src={previewImage}
@@ -28,7 +28,7 @@ function OfferCard({ offer, onMouseOver, }: PlaceCardProps): JSX.Element {
             height={200}
             alt="Place image"
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ReviewsBlock } from "../../mocks"
+import { ReviewsBlock } from "../../types/reviews.types";
 
 
 function Reviews({ reviews }: ReviewsBlock) {

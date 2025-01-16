@@ -1,13 +1,13 @@
 import { JSX } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/App/Header/Header';
-import { Offer, } from '../../mocks';
 import { OfferList } from '../../components/OffersList';
+import { OfferPreview } from '../../types/offers.types';
 
 
 
 interface MainPageProps {
-  offers: Offer[],
+  offers: OfferPreview[],
 }
 
 function MainPage({ offers }: MainPageProps): JSX.Element {

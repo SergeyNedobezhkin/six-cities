@@ -1,40 +1,6 @@
+import { Offer } from "../types/offers.types";
+import { CityName } from "../utils/const";
 
-
-export type OfferType = 'Apartment' | 'House';
-
-export type Offer = {
-  id: string;
-  title: string;
-  type: OfferType;
-  price: number;
-  city: {
-    name: string;
-    location: {
-      latitude: number;
-      longitude: number;
-      zoom: number;
-    };
-  };
-  location: {
-    latitude: number;
-    longitude: number;
-    zoom: number;
-  };
-  isFavorite: boolean;
-  isPremium: boolean;
-  rating: number | null;
-  previewImage: string;
-  description: string;
-  bedrooms: number;
-  goods: string[];
-  host: {
-    name: string;
-    isPro: boolean;
-    avatarUrl: string;
-  };
-  images: string[];
-  maxAdults: number;
-};
 
 export const offers: Offer[] = [
   {
@@ -43,7 +9,7 @@ export const offers: Offer[] = [
     type: 'Apartment',
     'price': 120,
     'city': {
-      'name': 'Amsterdam',
+      'name': CityName.Dusseldorf,
       'location': {
         'latitude': 52.35514938496378,
         'longitude': 4.673877537499948,
@@ -82,7 +48,7 @@ export const offers: Offer[] = [
     type: 'House',
     'price': 293,
     'city': {
-      'name': 'Amsterdam',
+      'name': CityName.Amsterdam,
       'location': {
         'latitude': 52.35514938496378,
         'longitude': 4.673877537499948,
@@ -122,7 +88,7 @@ export const offers: Offer[] = [
     'type': 'House',
     'price': 100,
     'city': {
-      'name': 'Amsterdam',
+      'name': CityName.Paris,
       'location': {
         'latitude': 52.35514938496378,
         'longitude': 4.673877537499948,
@@ -161,7 +127,7 @@ export const offers: Offer[] = [
     'type': 'House',
     'price': 133,
     'city': {
-      'name': 'Cologone',
+      'name': CityName.Cologne,
       'location': {
         'latitude': 52.35514938496378,
         'longitude': 4.673877537499948,
@@ -195,4 +161,3 @@ export const offers: Offer[] = [
     maxAdults: 4
   },
 ]
-

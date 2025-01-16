@@ -1,8 +1,8 @@
 import { JSX } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/App/Header/Header';
-import { ReviewsBlock } from '../../mocks';
 import Reviews from '../../components/Reviews/Reviews';
+import { ReviewsBlock } from '../../types/reviews.types';
 
 type OfferPageProps = {
   reviewsBlock: ReviewsBlock;

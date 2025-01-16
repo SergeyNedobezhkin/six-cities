@@ -12,7 +12,10 @@ import { AppRoute, AuthorizationStatus } from '../../constants/constants';
 import PrivateRoutes from '../PrivateRoutes/PrivateRoutes';
 import { HelmetProvider } from 'react-helmet-async';
 import { OfferPage } from '../../pages/OfferPage/OfferPage';
-import { Offer, OffersCity, ReviewsBlock } from '../../mocks';
+import { Offer } from '../../types/offers.types';
+import { ReviewsBlock } from '../../types/reviews.types';
+import { OffersCity } from '../../types/offersCity.types';
+
 
 
 interface AppProps {

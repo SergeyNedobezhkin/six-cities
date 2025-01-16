@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Offer } from '../../mocks';
 import OfferCard from '../OfferCard/OfferCard';
+import { OfferPreview } from '../../types/offers.types';
 
 type OfferListProps = {
-  offers: Offer[];
+  offers: OfferPreview[];
 }
 export const OfferList = ({ offers }: OfferListProps) => {
-  
+
   const [activeCard, setActiveCard] = useState(false);
 
   const onMouseOver = (id: any) => {

@@ -1,29 +1,6 @@
-import { Offer, OfferType } from "./offers";
-
-export type OffersCity = {
-  id: string;
-  title: string;
-  price: number;
-  type: OfferType;
-  city: {
-    name: string,
-    location: {
-      latitude: number,
-      longitude: number,
-      zoom: number
-    }
-  },
-  location: {
-    latitude: number,
-    longitude: number,
-    zoom: number
-  },
-  isFavorite: boolean;
-  isPremium: boolean;
-  rating: number | null;
-  previewImage: string;
-};
-
+import { OfferPreview } from "../types/offers.types";
+import { OffersCity } from "../types/offersCity.types";
+import { CityName } from "../utils/const";
 
 export const offersCity: OffersCity[] = [
   {
@@ -32,7 +9,7 @@ export const offersCity: OffersCity[] = [
     'type': 'Apartment',
     'price': 120,
     'city': {
-      'name': 'Amsterdam',
+      'name': CityName.Amsterdam,
       'location': {
         'latitude': 52.35514938496378,
         'longitude': 4.673877537499948,
@@ -52,10 +29,10 @@ export const offersCity: OffersCity[] = [
   {
     'id': '2',
     'title': 'Beautiful & luxurious studio at great location',
-    'type': 'House',
+    'type': 'Room',
     'price': 333,
     'city': {
-      'name': 'Paris',
+      'name': CityName.Paris,
       'location': {
         'latitude': 52.35514938496378,
         'longitude': 4.673877537499948,
@@ -102,7 +79,7 @@ export const offersCity: OffersCity[] = [
     'type': 'Apartment',
     'price': 123,
     'city': {
-      'name': 'Cologone',
+      'name': CityName.Cologne,
       'location': {
         'latitude': 52.35514938496378,
         'longitude': 4.673877537499948,
@@ -121,5 +98,4 @@ export const offersCity: OffersCity[] = [
   }
 ];
 
-// export type OfferFavorite = OffersCity & Omit<Offer, keyof OffersCity>;
-export type OfferFavorite = OffersCity & Partial<Omit<Offer, keyof OffersCity>>;
+export type OfferFavorite = OffersCity & Partial<Omit<OfferPreview, keyof OffersCity>>;
